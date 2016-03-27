@@ -6,6 +6,7 @@
 #define MEDICALIMAGEPROCESSING_MARCHINGCUBE_H
 
 #include "EdgeTable.h"
+using namespace std;
 
 class MarchingCube {
 public:

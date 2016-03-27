@@ -6,6 +6,9 @@
 #define MEDICALIMAGEPROCESSING_POINT_H
 
 #include <cmath>
+#include <ostream>
+
+using namespace std;
 
 class Point {
 public:
@@ -33,6 +36,8 @@ public:
     Triangle(Point p1, Point p2, Point p3);
 
     Triangle();
+
+    void print(ostream &out);
 };
 
 #endif //MEDICALIMAGEPROCESSING_POINT_H

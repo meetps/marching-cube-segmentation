@@ -3,6 +3,7 @@
 //
 
 #include "MarchingCube.h"
+#include <iostream>
 
 MarchingCube::MarchingCube(short ***image, short sx, short sy, short sz) {
     this->image = image;
@@ -21,5 +22,9 @@ void MarchingCube::march(short contour) {
                 triangles.splice(triangles.end(), edgeTable.getTriangles(image, i, j, k, contour));
             }
         }
+    }
+
+    for (Triangle triangle : triangles) {
+        triangle.print(cout);
     }
 }

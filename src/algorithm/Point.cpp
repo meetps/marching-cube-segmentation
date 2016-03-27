@@ -39,3 +39,11 @@ Triangle::Triangle(Point p1, Point p2, Point p3) {
 }
 
 Triangle::Triangle() { }
+
+void Triangle::print(ostream &out) {
+    out<<"{"<<endl;
+    out<<"\t"<<p1.x<<","<<p1.y<<","<<p1.z<<","<<endl;
+    out<<"\t"<<p2.x<<","<<p2.y<<","<<p2.z<<","<<endl;
+    out<<"\t"<<p3.x<<","<<p3.y<<","<<p3.z<<","<<endl;
+    out<<"}"<<endl;
+}

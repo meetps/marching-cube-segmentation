@@ -405,7 +405,7 @@ list <Triangle> EdgeTable::getTriangles(short ***image, short x, short y, short 
     list <Triangle> triangles;
     short index = 0;
     short nodeCase = getNodeCaseNumber();
-    while (triangleVertices[nodeCase][index] != -1) {
+    while (index < 16 && triangleVertices[nodeCase][index] != -1) {
         triangles.push_back(Triangle(
                 getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index]),
                 getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index + 1]),
@@ -413,6 +413,5 @@ list <Triangle> EdgeTable::getTriangles(short ***image, short x, short y, short 
         ));
         index += 3;
     }
-
     return triangles;
 }
