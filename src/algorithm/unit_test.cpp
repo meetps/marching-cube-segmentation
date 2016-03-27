@@ -40,12 +40,8 @@ short ***getRandomImage(short sx, short sy, short sz, short max_value) {
 
 
 int main() {
-
     short sx = 2, sy = 2, sz = 2, max_value = 4;
     short ***image = getRandomImage(sx, sy, sz, max_value);
     MarchingCube cube(image, sx, sy, sz);
     cube.march(2);
-
-    /*MarchingCube cube("../../data/VSD.Brain.XX.O.MR_Flair/Flair.csv");
-    cube.march(1200);*/
 }

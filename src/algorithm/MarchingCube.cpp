@@ -12,7 +12,7 @@ MarchingCube::MarchingCube(short ***image, short sx, short sy, short sz) {
     this->sz = sz;
 }
 
-void MarchingCube::march(short contour) {
+list <Triangle> MarchingCube::march(short contour) {
     list <Triangle> triangles;
     for (int i = 0; i < sx - 1; i++) {
         for (int j = 0; j < sy - 1; j++) {
@@ -27,6 +27,8 @@ void MarchingCube::march(short contour) {
     for (Triangle triangle : triangles) {
         triangle.print(cout);
     }
+
+    return triangles;
 }
 
 MarchingCube::MarchingCube(string filename) {

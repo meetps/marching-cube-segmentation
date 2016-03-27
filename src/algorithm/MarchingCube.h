@@ -22,7 +22,7 @@ public:
     MarchingCube(short ***image, short sx, short sy, short sz);
     MarchingCube(string filename);
 
-    void march(short contour);
+    list <Triangle> march(short contour);
 };
 
 #endif //MEDICALIMAGEPROCESSING_MARCHINGCUBE_H
