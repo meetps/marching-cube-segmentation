@@ -11,6 +11,8 @@ BIN=application.out
 SRCS=application.cpp gl_framework.cpp shader_util.cpp
 INCLUDES=gl_framework.hpp shader_util.hpp application.hpp
 
+.phony: all clean algo
+
 all: $(BIN)
 
 $(BIN): $(SRCS) $(INCLUDES)
@@ -18,3 +20,9 @@ $(BIN): $(SRCS) $(INCLUDES)
 
 clean:
 	rm -f *~ *.o $(BIN)
+
+algo:
+	cd algorithm; make; ./marching_cube.out
+
+unit:
+	cd algorithm; make unit; ./unit_bin.out

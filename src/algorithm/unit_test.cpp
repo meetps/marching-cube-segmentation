@@ -25,23 +25,22 @@ short ***getRandomImage(short sx, short sy, short sz, short max_value) {
         }
     }
 
-    for (int i = 0; i < sz; i++) {
-        for (int j = sy - 1; j >= 0; j--) {
-            for (int k = 0; k < sx; k++) {
-                cout << image[k][j][i] << " ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-    }
-
     return image;
 }
 
 
 int main() {
-    short sx = 2, sy = 2, sz = 2, max_value = 4;
+    short size = 3;
+    short sx = size, sy = size, sz = size, max_value = 10;
     short ***image = getRandomImage(sx, sy, sz, max_value);
     MarchingCube cube(image, sx, sy, sz);
-    cube.march(2);
+    list <Triangle> triangles = cube.march(5);
+
+    ofstream fout;
+    fout.open("triangles.txt");
+    fout << triangles.size() << endl;
+    for (Triangle triangle : triangles) {
+        triangle.print(fout);
+    }
+    fout.close();
 }

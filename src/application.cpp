@@ -67,6 +67,23 @@ void initBuffersGL(void) {
     uModelViewMatrix = glGetUniformLocation(shaderProgram, "uModelViewMatrix");
 }
 
+void readTriangles() {
+    ifstream fin;
+    fin.open("algorithm/triangles.txt");
+
+    int num_triangles;
+    fin >> num_triangles;
+    num_vertices = min(3 * num_triangles, MAX_VERTICES);
+
+    for (int i = 0; i < num_vertices; i++) {
+        float x, y, z;
+        fin >> x >> y >> z;
+        v_positions[i] = glm::vec4(x, y, z, 1);
+        v_colors[i] = glm::vec4(1, 1, 1, 1);
+    }
+    fin.close();
+}
+
 void renderGL(void) {
 
     glBindBuffer(GL_ARRAY_BUFFER, position_vbo);
@@ -94,6 +111,9 @@ void renderGL(void) {
 }
 
 int main(int argc, char **argv) {
+
+    readTriangles();
+
     //! The pointer to the GLFW window
     GLFWwindow *window;
 

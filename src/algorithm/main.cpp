@@ -15,9 +15,13 @@ using namespace std;
 
 int main() {
     MarchingCube cube("../../data/VSD.Brain.XX.O.MR_Flair/Flair.csv");
-    list<Triangle> triangles = cube.march(1200);
+    list <Triangle> triangles = cube.march(700);
 
     ofstream fout;
     fout.open("triangles.txt");
-
+    fout << triangles.size() << endl;
+    for (Triangle triangle : triangles) {
+        triangle.print(fout);
+    }
+    fout.close();
 }

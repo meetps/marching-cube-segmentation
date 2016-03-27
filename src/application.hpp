@@ -6,9 +6,11 @@
 // Defining the DELETE Key Code
 #define DELETE 127
 // Maximum number of vertices possible in an object
-#define MAX_VERTICES 1000
+#define MAX_VERTICES 1000000
 
 #include <iostream>
+#include <fstream>
+#include <cmath>
 #include "gl_framework.hpp"
 #include "shader_util.hpp"
 #include "glm/vec3.hpp"
@@ -16,6 +18,8 @@
 #include "glm/mat4x4.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
+
+using namespace std;
 
 // Translation Parameters
 GLfloat xpos = 0.0, ypos = 0.0, zpos = 0.0;
@@ -39,12 +43,12 @@ bool enable_culling = true;
 bool solid = true;
 
 // window_size
-int window_size_x = 512;
-int window_size_y = 512;
+int window_size_x = 1440;
+int window_size_y = 900;
 
-double view_x = 2.0;
-double view_y = 2.0;
-double view_z = 2.0;
+double view_x = 200.0;
+double view_y = 200.0;
+double view_z = 200.0;
 
 //-------------------------------------------------------------------------
 

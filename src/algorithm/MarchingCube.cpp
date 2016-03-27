@@ -23,11 +23,7 @@ list <Triangle> MarchingCube::march(short contour) {
             }
         }
     }
-
-    for (Triangle triangle : triangles) {
-        triangle.print(cout);
-    }
-
+    
     return triangles;
 }
 
