@@ -20,8 +20,19 @@ public:
     Point mult(float value);
 
     short sx();
+
     short sy();
+
     short sz();
+};
+
+class Triangle {
+public:
+    Point p1, p2, p3;
+
+    Triangle(Point p1, Point p2, Point p3);
+
+    Triangle();
 };
 
 #endif //MEDICALIMAGEPROCESSING_POINT_H

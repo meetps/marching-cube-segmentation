@@ -16,7 +16,7 @@ Point Point::add(Point a) {
     return Point(a.x + x, a.y + y, a.z + z);
 }
 
-Point Point::mult(short value) {
+Point Point::mult(float value) {
     return Point(value * x, value * y, value * z);
 }
 
@@ -31,3 +31,11 @@ short Point::sy() {
 short Point::sz() {
     return round(z);
 }
+
+Triangle::Triangle(Point p1, Point p2, Point p3) {
+    this->p1 = p1;
+    this->p2 = p2;
+    this->p3 = p3;
+}
+
+Triangle::Triangle() { }

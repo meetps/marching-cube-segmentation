@@ -6,6 +6,9 @@
 #define MEDICALIMAGEPROCESSING_EDGETABLE_H
 
 #include "Point.h"
+#include <list>
+
+using namespace std;
 
 class EdgeTable {
 
@@ -18,13 +21,19 @@ public:
     // x,y,z are the least x, y, z value corner of the cell
     void setValues(short ***image, short x, short y, short z, short contour);
 
-    short *getIntersection(short ***image, short x, short y, short z, short contour, short edge);
+    Point getIntersection(short ***image, short x, short y, short z, short contour, short edge);
 
     static short getPointIntensity(short ***image, short x, short y, short z, short index);
 
     static Point getPoint(short x, short y, short z, short index);
 
-    static short *getPoints(short edge);
+    static void getPoints(short edge, short arr[]);
+
+    short getEdgeCaseNumber();
+
+    short getNodeCaseNumber();
+
+    list<Triangle> getTriangles(short ***image, short x, short y, short z, short contour);
 };
 
 #endif //MEDICALIMAGEPROCESSING_EDGETABLE_H
