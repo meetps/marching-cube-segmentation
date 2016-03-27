@@ -43,12 +43,12 @@ bool enable_culling = true;
 bool solid = true;
 
 // window_size
-int window_size_x = 1440;
+int window_size_x = 900;
 int window_size_y = 900;
 
-double view_x = 200.0;
-double view_y = 200.0;
-double view_z = 200.0;
+double view_x = 100.0;
+double view_y = 100.0;
+double view_z = 100.0;
 
 //-------------------------------------------------------------------------
 

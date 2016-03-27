@@ -25,7 +25,7 @@ void initShaders(void) {
     std::string vertex_shader_file("vshader.glsl");
     std::string fragment_shader_file("fshader.glsl");
 
-    std::vector<GLuint> shaderList;
+    std::vector <GLuint> shaderList;
     shaderList.push_back(csX75::LoadShaderGL(GL_VERTEX_SHADER, vertex_shader_file));
     shaderList.push_back(csX75::LoadShaderGL(GL_FRAGMENT_SHADER, fragment_shader_file));
 
@@ -133,7 +133,7 @@ int main(int argc, char **argv) {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //! Create a windowed mode window and its OpenGL context
-    window = glfwCreateWindow(window_size_x, window_size_y, "CS775 Project: Legolization", NULL, NULL);
+    window = glfwCreateWindow(window_size_x, window_size_y, "CS736 Project: Marching Cube", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
