@@ -299,44 +299,56 @@ Point EdgeTable::getPoint(short x, short y, short z, short index) {
     }
 }
 
-void EdgeTable::getPoints(short edge, short arr[]) {
+void EdgeTable::getPoints(short edge, short *arr) {
     switch (edge) {
         case 0:
             arr[0] = 0;
             arr[1] = 1;
+            break;
         case 1:
             arr[0] = 1;
             arr[1] = 2;
+            break;
         case 2:
             arr[0] = 2;
             arr[1] = 3;
+            break;
         case 3:
             arr[0] = 3;
             arr[1] = 0;
+            break;
         case 4:
             arr[0] = 4;
             arr[1] = 5;
+            break;
         case 5:
             arr[0] = 5;
             arr[1] = 6;
+            break;
         case 6:
             arr[0] = 6;
             arr[1] = 7;
+            break;
         case 7:
             arr[0] = 7;
             arr[1] = 4;
+            break;
         case 8:
             arr[0] = 0;
             arr[1] = 4;
+            break;
         case 9:
             arr[0] = 1;
             arr[1] = 5;
+            break;
         case 10:
             arr[0] = 2;
             arr[1] = 6;
+            break;
         case 11:
             arr[0] = 3;
             arr[1] = 7;
+            break;
         default:
             arr[0] = 0;
             arr[1] = 1;
@@ -406,11 +418,12 @@ list <Triangle> EdgeTable::getTriangles(short ***image, short x, short y, short 
     short index = 0;
     short nodeCase = getNodeCaseNumber();
     while (index < 16 && triangleVertices[nodeCase][index] != -1) {
-        triangles.push_back(Triangle(
-                getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index]),
-                getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index + 1]),
-                getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index + 2])
-        ));
+        Point p1 = getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index]);
+        Point p2 = getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index + 1]);
+        Point p3 = getIntersection(image, x, y, z, contour, triangleVertices[nodeCase][index + 2]);
+
+        Triangle triangle(p1, p2, p3);
+        triangles.push_back(triangle);
         index += 3;
     }
     return triangles;

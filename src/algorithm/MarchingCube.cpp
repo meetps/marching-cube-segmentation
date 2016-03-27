@@ -28,3 +28,36 @@ void MarchingCube::march(short contour) {
         triangle.print(cout);
     }
 }
+
+MarchingCube::MarchingCube(string filename) {
+    ifstream mhaReader;
+    mhaReader.open(filename);
+    if (mhaReader.is_open()) {
+        short val;
+        mhaReader >> sx;
+        mhaReader >> sy;
+        mhaReader >> sz;
+
+        image = new short **[sx];
+        for (int i = 0; i < sx; i++) {
+            image[i] = new short *[sy];
+            for (int j = 0; j < sy; j++) {
+                image[i][j] = new short[sz];
+            }
+        }
+
+        int max = 0;
+
+        for (int k = 0; k < sz; k++) {
+            for (int j = 0; j < sy; j++) {
+                for (int i = 0; i < sx; i++) {
+                    mhaReader >> val;
+                    image[i][j][k] = val;
+                    if (val > max) {
+                        max = val;
+                    }
+                }
+            }
+        }
+    }
+}

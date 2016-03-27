@@ -26,7 +26,7 @@ short ***getRandomImage(short sx, short sy, short sz, short max_value) {
     }
 
     for (int i = 0; i < sz; i++) {
-        for (int j = sy - 1; j >= 0 ; j--) {
+        for (int j = sy - 1; j >= 0; j--) {
             for (int k = 0; k < sx; k++) {
                 cout << image[k][j][i] << " ";
             }
@@ -38,9 +38,14 @@ short ***getRandomImage(short sx, short sy, short sz, short max_value) {
     return image;
 }
 
+
 int main() {
+
     short sx = 2, sy = 2, sz = 2, max_value = 4;
     short ***image = getRandomImage(sx, sy, sz, max_value);
     MarchingCube cube(image, sx, sy, sz);
     cube.march(2);
+
+    /*MarchingCube cube("../../data/VSD.Brain.XX.O.MR_Flair/Flair.csv");
+    cube.march(1200);*/
 }

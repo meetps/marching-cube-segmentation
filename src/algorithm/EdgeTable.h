@@ -7,6 +7,7 @@
 
 #include "Point.h"
 #include <list>
+#include <iostream>
 
 using namespace std;
 

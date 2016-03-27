@@ -27,6 +27,8 @@ public:
     short sy();
 
     short sz();
+
+    void print(ostream &out);
 };
 
 class Triangle {
