@@ -18,7 +18,6 @@ def save_csv(data,filename,dirpath):
     	outfile.write(str(data.shape[1]) + " " + str(data.shape[2])+ " " +  str(data.shape[3]) + '\n')
     	for data_slice in data[0,:]:
         	np.savetxt(outfile, data_slice.astype(int) , fmt = '%i')
-        	outfile.write('# New slice\n')
 
 for dirpath, dirnames, filenames in os.walk(DATA_PATH):
 	for filename in [f for f in filenames if f.endswith(".mha")]:
@@ -28,5 +27,5 @@ for dirpath, dirnames, filenames in os.walk(DATA_PATH):
 					cropped_shape = crop_MRI(orig_data.shape)
 					cropped_data  = orig_data[:,cropped_shape[0][0]:cropped_shape[0][1],cropped_shape[1][0] \
 												:cropped_shape[1][1],cropped_shape[2][0]:cropped_shape[2][1]]
-					print(cropped_data[:,80,80,80])							
-					# save_csv(cropped_data,'Flair',dirpath)
+					# print(cropped_data[:,80,80,80])							
+					save_csv(cropped_data,'Flair',dirpath)

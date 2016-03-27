@@ -1,15 +1,20 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
+#include <stdlib.h>
+
 
 using namespace std;
 
 string FILE_NAME = "../../data/data/VSD.Brain.XX.O.MR_Flair/Flair.csv";
 
-// void readMHA(FILE_NAME)
-// {
-// 	break;
-// } 
+int str2int (const string &str) {
+  stringstream ss(str);
+  int num;
+  ss >> num;
+  return num;
+}
 
 int main()
 {
@@ -42,19 +47,10 @@ int main()
     				for (int i = 0; i < SX; i++)
     				{
  						mhaReader >> val;
-    					imageMat[i][j][k] = (short)val;
+						imageMat[i][j][k] = str2int(val);
     				}
     			}
     		}
-		}
-
-		for (int i = 0; i < SX; i++)
-    	{
-    		for (int j = 0; j < SY; j++)
-    		{
-    			// cout << imageMat[0][i][j] << " ";
-    			;
-     		}
 		}
     	cout << imageMat[80][80][80] << " ";
 	}
