@@ -28,4 +28,5 @@ for dirpath, dirnames, filenames in os.walk(DATA_PATH):
 					cropped_data  = orig_data[:,cropped_shape[0][0]:cropped_shape[0][1],cropped_shape[1][0] \
 												:cropped_shape[1][1],cropped_shape[2][0]:cropped_shape[2][1]]
 					# print(cropped_data[:,80,80,80])							
+					# print(np.amax(cropped_data))							
 					save_csv(cropped_data,'Flair',dirpath)

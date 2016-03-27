@@ -7,14 +7,7 @@
 
 using namespace std;
 
-string FILE_NAME = "../../data/data/VSD.Brain.XX.O.MR_Flair/Flair.csv";
-
-int str2int (const string &str) {
-  stringstream ss(str);
-  int num;
-  ss >> num;
-  return num;
-}
+string FILE_NAME = "../../data/VSD.Brain.XX.O.MR_Flair/Flair.csv";
 
 int main()
 {
@@ -22,36 +15,43 @@ int main()
  	mhaReader.open("../../data/VSD.Brain.XX.O.MR_Flair/Flair.csv");
  	if (mhaReader.is_open()) 
  	{
- 		int n = 0, SX=0, SY=0, SZ=0;
- 		string val;
+ 		int SX=0, SY=0, SZ=0;
+ 		short val;
  		mhaReader >> SX;
  		mhaReader >> SY;
  		mhaReader >> SZ;
 
- 		short *** imageMat = new short** [(int)SX];
+ 		short *** imageMat = new short** [SX];
 		for(int i = 0; i < SX; i++)
 		{
-			imageMat[i] = new short* [(int)SY];
+			imageMat[i] = new short* [SY];
 			for(int j = 0; j < SY; j++)
 			{
-				imageMat[i][j] = new short[(int)SZ];
+				imageMat[i][j] = new short[SZ];
 			}	
 		}
 
- 		while (!mhaReader.eof()) 
- 		{
-    		for (int k = 0; k < SZ; k++)
+		int max = 0;
+
+ 		for (int k = 0; k < SZ; k++)
     		{
     			for (int j = 0; j < SY; j++)
     			{
     				for (int i = 0; i < SX; i++)
     				{
  						mhaReader >> val;
-						imageMat[i][j][k] = str2int(val);
+						imageMat[i][j][k] = val;
+    					if(val > max)
+    					{
+    						max = val;
+    					}
+    					if (i == 80 && j == 80 && k == 80) {
+    						cout <<"HERE"<< val<<" "<<imageMat[i][j][k]<<" "<<endl;
+    					}
     				}
     			}
-    		}
 		}
     	cout << imageMat[80][80][80] << " ";
+    	cout << max << " ";
 	}
 }
