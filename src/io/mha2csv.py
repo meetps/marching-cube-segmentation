@@ -2,7 +2,9 @@ import os
 import mhaReader
 import numpy as np
 
-DATA_PATH = '../data/'
+np.set_printoptions(threshold=np.nan)
+
+DATA_PATH = '../../data/'
 
 def crop_MRI(shape_MRI):
 		rangeX = (shape_MRI[1]/2 -80,shape_MRI[1]/2 + 80)
@@ -13,9 +15,9 @@ def crop_MRI(shape_MRI):
 
 def save_csv(data,filename,dirpath):
     with file(os.path.join(dirpath, filename) + '.csv', 'w') as outfile:
-    	outfile.write('# Array shape: ' + str(data.shape))
+    	outfile.write(str(data.shape[1]) + " " + str(data.shape[2])+ " " +  str(data.shape[3]) + '\n')
     	for data_slice in data[0,:]:
-        	np.savetxt(outfile, data_slice)
+        	np.savetxt(outfile, data_slice.astype(int) , fmt = '%i')
         	outfile.write('# New slice\n')
 
 for dirpath, dirnames, filenames in os.walk(DATA_PATH):
@@ -26,4 +28,5 @@ for dirpath, dirnames, filenames in os.walk(DATA_PATH):
 					cropped_shape = crop_MRI(orig_data.shape)
 					cropped_data  = orig_data[:,cropped_shape[0][0]:cropped_shape[0][1],cropped_shape[1][0] \
 												:cropped_shape[1][1],cropped_shape[2][0]:cropped_shape[2][1]]
-					save_csv(cropped_data,'Flair',dirpath)
+					print(cropped_data[:,80,80,80])							
+					# save_csv(cropped_data,'Flair',dirpath)
