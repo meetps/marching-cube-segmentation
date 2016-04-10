@@ -69,4 +69,10 @@ int main() {
         triangle.print(fout);
     }
     fout.close();
+
+    fout.open("../renderman/triangles.rib");
+    for (Triangle triangle : triangles) {
+        triangle.render(fout);
+    }
+    fout.close();
 }

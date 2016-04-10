@@ -1,0 +1,16 @@
+Projection "perspective" "fov" 45 
+Display "renders/FILE.tif" "tiff" "rgba"
+Format 480 480 1
+
+FrameBegin 1
+Translate 80 -80 160
+Rotate ANGLE 0 1 0
+
+WorldBegin
+
+    AttributeBegin
+        ReadArchive "triangles.rib"
+    AttributeEnd
+
+WorldEnd
+FrameEnd

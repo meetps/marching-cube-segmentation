@@ -26,3 +26,6 @@ algo:
 
 unit:
 	cd algorithm; make unit; ./unit_bin.out
+
+prman:
+	cd renderman; make;

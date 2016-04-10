@@ -40,6 +40,8 @@ public:
     Triangle();
 
     void print(ostream &out);
+
+    void render(ostream &out);
 };
 
 #endif //MEDICALIMAGEPROCESSING_POINT_H

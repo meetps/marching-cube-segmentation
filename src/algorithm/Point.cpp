@@ -33,7 +33,7 @@ short Point::sz() {
 }
 
 void Point::print(ostream &out) {
-    out << x << " " << y << " " << z << endl;
+    out << x << " " << y << " " << z;
 }
 
 Triangle::Triangle(Point p1, Point p2, Point p3) {
@@ -46,6 +46,19 @@ Triangle::Triangle() { }
 
 void Triangle::print(ostream &out) {
     p1.print(out);
+    out << endl;
     p2.print(out);
+    out << endl;
     p3.print(out);
+    out << endl;
+}
+
+void Triangle::render(ostream &out) {
+    out << "Polygon \"P\" [";
+    p1.print(out);
+    out << " ";
+    p2.print(out);
+    out << " ";
+    p3.print(out);
+    out << "]" << endl;
 }
