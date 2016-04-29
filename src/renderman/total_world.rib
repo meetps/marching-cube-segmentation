@@ -14,6 +14,9 @@ WorldBegin
         Rotate ANGLEY 0 1 0
         Rotate ANGLEZ 0 0 1
         ReadArchive "triangles.rib"
+        #Polygon "P" [0 0 0 400 0 0 400 1 0 0 1 0]
+        #Polygon "P" [0 0 0 0 400 0 0 400 1 0 0 1]
+        #Polygon "P" [0 0 0 0 0 400 1 0 400 1 0 0]
     AttributeEnd
 
 WorldEnd

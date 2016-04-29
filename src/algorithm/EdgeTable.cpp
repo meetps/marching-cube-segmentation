@@ -364,7 +364,7 @@ void EdgeTable::setValues(short ***image, short x, short y, short z, short conto
     for (int i = 0; i < 12; i++) {
         short points[2];
         getPoints(i, points);
-        edgeIntersections[0] = nodeParity[points[0]] ^ nodeParity[points[1]];
+        edgeIntersections[i] = nodeParity[points[0]] ^ nodeParity[points[1]];
     }
 }
 
