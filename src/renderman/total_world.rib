@@ -1,0 +1,20 @@
+Projection "perspective" "fov" 45 
+Display "renders/FILE.tif" "tiff" "rgba"
+Format 760 760 1
+
+FrameBegin 1
+
+Translate -160 -160 240
+
+WorldBegin
+
+    AttributeBegin
+        Translate 80 80 80
+        Rotate ANGLEX 1 0 0
+        Rotate ANGLEY 0 1 0
+        Rotate ANGLEZ 0 0 1
+        ReadArchive "triangles.rib"
+    AttributeEnd
+
+WorldEnd
+FrameEnd

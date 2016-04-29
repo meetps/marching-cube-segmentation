@@ -6,6 +6,7 @@
 #include "EdgeTable.h"
 #include "MarchingCube.h"
 
+#include <cstdio>
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
@@ -75,4 +76,20 @@ int main() {
         triangle.render(fout);
     }
     fout.close();
+
+    string cmd;
+    int count = 0;
+    for (int ax = -180; ax < 180; ax+=60) {
+        for (int az = -30; az <= 30; az+=10) {
+            cmd = "cd ../renderman; make individual AX=" + to_string(ax)
+                  + " AY=0"
+                  + " AZ=" + to_string(az)
+                  + " FILENAME=" + to_string(count);
+            const char *cmd_car = cmd.c_str();
+            system(cmd_car);
+            cout << cmd << endl;
+            count++;
+        }
+
+    }
 }

@@ -6,6 +6,15 @@ world:
 clean:
 	rm -f renders/*.tif
 
+individual:
+	@sed 's/ANGLEX/$(AX)/g' total_world.rib > tworld.rib
+	@sed 's/ANGLEY/$(AY)/g' tworld.rib > aworld.rib
+	@sed 's/ANGLEZ/$(AZ)/g' aworld.rib > tworld.rib
+	@sed 's/FILE/render_$(FILENAME)/g'  tworld.rib > aworld.rib
+	@prman aworld.rib
+	@rm -f aworld.rib
+	@rm -f tworld.rib
+
 multiple:
 	sed 's/ANGLE/-90/g' world.rib > aworld.rib
 	sed 's/FILE/render_1/g'  aworld.rib > tworld.rib
